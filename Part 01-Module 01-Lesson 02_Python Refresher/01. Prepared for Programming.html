@@ -1,0 +1,198 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Prepared for Programming</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Python Refresher</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Prepared for Programming.html">01. Prepared for Programming</a>
+    </li>
+    <li class="">
+      <a href="02. Control Structures.html">02. Control Structures</a>
+    </li>
+    <li class="">
+      <a href="03. Functions  Generators.html">03. Functions &amp; Generators</a>
+    </li>
+    <li class="">
+      <a href="04. Classes.html">04. Classes</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">01. Prepared for Programming</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>Sintaxe</p></h3>
+  <video controls>
+  <source src="01. Sintaxe-08M93RaBSgU.mp4" type="video/mp4">
+
+  <track default="false" kind="subtitles" srclang="zh-CN" src="01. Sintaxe-08M93RaBSgU.zh-CN.vtt" label="zh-CN">
+  <track default="true" kind="subtitles" srclang="en-US" src="01. Sintaxe-08M93RaBSgU.en-US.vtt" label="en-US">
+  <track default="false" kind="subtitles" srclang="ja-JP" src="01. Sintaxe-08M93RaBSgU.ja-JP.vtt" label="ja-JP">
+  <track default="false" kind="subtitles" srclang="pt-BR" src="01. Sintaxe-08M93RaBSgU.pt-BR.vtt" label="pt-BR">
+  <track default="true" kind="subtitles" srclang="en" src="01. Sintaxe-08M93RaBSgU.en.vtt" label="en">
+</video>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>The data structures and algorithms you learn in this program can be implemented in any number of different languages. For that reason, when we discuss these concepts in videos, we'll explain them in general terms and demonstrate them using <a href="https://en.wikipedia.org/wiki/Pseudocode" target="_blank">pseudocode</a>.</p>
+<p>However, it's also essential to get lots of practice applying the algorithms for yourself, so we'll provide exercises and projects where you can implement the algorithms using concrete code. </p>
+<p>The language we'll be using for these exercises is <strong>Python 3</strong>. It will help you a lot if you take the time now to make sure your understanding of fundamental Python is strong. In this section, we'll briefly review some of the main concepts you should know. This will help you see if you have areas where you need to do some additional review or practice.</p>
+<p>At the bottom of the main menu for this Nanodegree, you'll find an <em>Extracurricular</em> section. This contains our full <a href="https://classroom.udacity.com/nanodegrees/nd256/parts/3e0736c8-22b4-4fca-83de-4250391bc9d1" target="_blank">Introduction to Python</a> course. If you feel uncomfortable with any of the concepts we review in this brief refresher, feel free to use the full Python course to go deeper.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="02. Control Structures.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Prepared for Programming')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>
