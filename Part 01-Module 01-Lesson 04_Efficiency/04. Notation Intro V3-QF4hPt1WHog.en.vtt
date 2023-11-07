@@ -1,0 +1,157 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.995
+When you look at two pieces of code,
+
+00:00:01.995 --> 00:00:06.180
+you can maybe tell which one is going to be faster and which one is going to be slower.
+
+00:00:06.180 --> 00:00:10.920
+But how do we say definitively which one is faster and which one is slower?
+
+00:00:10.920 --> 00:00:14.710
+And how do we communicate that with our coworkers and the people around us?
+
+00:00:14.710 --> 00:00:19.290
+We can describe the efficiency of code with something called big O notation.
+
+00:00:19.290 --> 00:00:22.230
+The name is odd if you're hearing it for the first time,
+
+00:00:22.230 --> 00:00:25.140
+but it turns out to be a very straightforward name.
+
+00:00:25.140 --> 00:00:27.360
+Every time you use this notation,
+
+00:00:27.360 --> 00:00:30.420
+you literally write a capital letter O,
+
+00:00:30.420 --> 00:00:34.710
+parentheses and some algebraic expression inside the parentheses.
+
+00:00:34.710 --> 00:00:39.290
+The algebraic expression is always going to be a mathematical function of the variable,
+
+00:00:39.290 --> 00:00:42.225
+n, such as some of these examples.
+
+00:00:42.225 --> 00:00:45.920
+As you can see, these all contain algebraic expressions with the letter,
+
+00:00:45.920 --> 00:00:49.940
+n. The only exception is this guy right here.
+
+00:00:49.940 --> 00:00:52.975
+Yes, the number one still counts.
+
+00:00:52.975 --> 00:00:56.705
+It's just another way to write 0n plus one.
+
+00:00:56.705 --> 00:00:59.435
+So this is a value we can still use.
+
+00:00:59.435 --> 00:01:03.440
+So what does the algebraic expression mean in this case.
+
+00:01:03.440 --> 00:01:07.880
+Well, n represents the length of an input to your function.
+
+00:01:07.880 --> 00:01:12.200
+Let's say you received a secret coded message from one of your friends,
+
+00:01:12.200 --> 00:01:15.470
+and a cipher that tells you which letter maps to what.
+
+00:01:15.470 --> 00:01:19.160
+You want to automatically decode the coded messages,
+
+00:01:19.160 --> 00:01:21.030
+with the cypher your friend gave you.
+
+00:01:21.030 --> 00:01:25.490
+So you write some pseudocode to figure out how you can do that.
+
+00:01:25.490 --> 00:01:27.830
+You take a string input,
+
+00:01:27.830 --> 00:01:29.720
+you iterate through it,
+
+00:01:29.720 --> 00:01:32.695
+and change each letter based on the cipher,
+
+00:01:32.695 --> 00:01:35.345
+and then you output a new message.
+
+00:01:35.345 --> 00:01:39.005
+This pseudocode shows you what it might actually look like.
+
+00:01:39.005 --> 00:01:41.944
+Okay. So to get a sense of the time efficiency,
+
+00:01:41.944 --> 00:01:44.495
+we're just going to count up the number of lines.
+
+00:01:44.495 --> 00:01:47.695
+Creating an output string and returning an output string,
+
+00:01:47.695 --> 00:01:49.435
+each only need to happen once,
+
+00:01:49.435 --> 00:01:51.520
+every time the function is run.
+
+00:01:51.520 --> 00:01:55.760
+To represent that, we can go ahead and add a two to our efficiency.
+
+00:01:55.760 --> 00:02:01.315
+Now, both lines inside the for loop have to get run for every letter in the input.
+
+00:02:01.315 --> 00:02:07.480
+For those, we can add a 2n since two is the number of letters in our input string,
+
+00:02:07.480 --> 00:02:10.280
+and we have two lines that need to get run for each one.
+
+00:02:10.280 --> 00:02:12.970
+Hopefully, the way we count up lines and turn it into
+
+00:02:12.970 --> 00:02:16.360
+something in big O notation is starting to make sense to you.
+
+00:02:16.360 --> 00:02:18.730
+Let's take a look at some examples.
+
+00:02:18.730 --> 00:02:21.565
+If our input string had 10 letters,
+
+00:02:21.565 --> 00:02:24.350
+the calculation would look something like this,
+
+00:02:24.350 --> 00:02:26.690
+and we would end up with the value 22.
+
+00:02:26.690 --> 00:02:28.595
+To get the actual efficiency,
+
+00:02:28.595 --> 00:02:31.190
+you can multiply 22 times the amount of
+
+00:02:31.190 --> 00:02:34.540
+time it takes for your computer to run one line of code.
+
+00:02:34.540 --> 00:02:36.945
+If the input string was one million,
+
+00:02:36.945 --> 00:02:38.294
+you would have to multiply
+
+00:02:38.294 --> 00:02:42.935
+two million times the amount of time it takes for your computer to do a computation.
+
+00:02:42.935 --> 00:02:45.970
+There you go, looks like you've got the basics down.
+

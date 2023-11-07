@@ -1,0 +1,260 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Efficiency</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Efficiency</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Efficiency.html">01. Efficiency</a>
+    </li>
+    <li class="">
+      <a href="02. Quantifying Efficiency.html">02. Quantifying Efficiency</a>
+    </li>
+    <li class="">
+      <a href="03. Input Size and Efficiency.html">03. Input Size and Efficiency</a>
+    </li>
+    <li class="">
+      <a href="04. Big O Notation (12).html">04. Big O Notation (1/2)</a>
+    </li>
+    <li class="">
+      <a href="05. Big O Notation (22).html">05. Big O Notation (2/2)</a>
+    </li>
+    <li class="">
+      <a href="06. Worst Case and Approximation.html">06. Worst Case and Approximation</a>
+    </li>
+    <li class="">
+      <a href="07. Efficiency Practice.html">07. Efficiency Practice</a>
+    </li>
+    <li class="">
+      <a href="08. Space Complexity.html">08. Space Complexity</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">01. Efficiency</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="efficiency">Efficiency</h1>
+<p>We said earlier that this Nanodegree program is about how to write code to <strong>solve problems</strong> and to do so <strong>efficiently</strong>.</p>
+<p>In the last section, we looked at some basic aspects of solving problems—but we didn't really think too much about whether our solutions were <em>efficient</em>.</p>
+<h2 id="space-and-time"><strong>Space</strong> and <strong>time</strong></h2>
+<p>When we refer to the <em>efficiency</em> of a program, we aren't just thinking about its speed—we're considering both the <strong>time</strong> it will take to run the program <em>and</em> the amount of <strong>space</strong> the program will require in the computer's memory. Often there will be a trade-off between the two, where you can design a program that runs faster by selecting a data structure that takes up more space—or vice versa.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>Efficiency</p></h3>
+  <video controls>
+  <source src="01. Efficiency-I-RASDPbDrI.mp4" type="video/mp4">
+
+  <track default="false" kind="subtitles" srclang="zh-CN" src="01. Efficiency-I-RASDPbDrI.zh-CN.vtt" label="zh-CN">
+  <track default="true" kind="subtitles" srclang="en-US" src="01. Efficiency-I-RASDPbDrI.en-US.vtt" label="en-US">
+  <track default="false" kind="subtitles" srclang="ja-JP" src="01. Efficiency-I-RASDPbDrI.ja-JP.vtt" label="ja-JP">
+  <track default="false" kind="subtitles" srclang="pt-BR" src="01. Efficiency-I-RASDPbDrI.pt-BR.vtt" label="pt-BR">
+  <track default="true" kind="subtitles" srclang="en" src="01. Efficiency-I-RASDPbDrI.en.vtt" label="en">
+</video>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="algorithms">Algorithms</h2>
+<blockquote>
+  <p>An <strong>algorithm</strong> is essentially <em>a series of steps for solving a problem</em>. Usually, an algorithm takes some kind of input (such as an unsorted list) and then produces the desired output (such as a sorted list).</p>
+</blockquote>
+<p>For any given problem, there are usually many different algorithms that will get you to exactly the same end result. But some will be much more efficient than others. To be an effective problem solver, you'll need to develop the ability to look at a problem and identify different algorithms that could be used—and then contrast those algorithms to consider which will be more or less efficient.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="but-computers-are-so-fast">But computers are so fast!</h2>
+<p>Sometimes it seems like computers run programs so quickly that efficiency shouldn't really matter. And in some cases, this is true—one version of a program may take 10 times longer than another, but they both still run so quickly that it has no real impact.</p>
+<p>But in other cases, a small difference in how your code is written—or a tiny change in the type of data structure you use—can mean the difference between a program that runs in a fraction of a millisecond and a program that takes hours (or even <em>years</em>!) to run.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>In thinking about the <em>efficiency</em> of a program, which is more important: The <strong>time</strong> the program will take to run, or the amount of <strong>space</strong> the program will require?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552147728776" name="837574" id="a1552147728776">
+        <label for="a1552147728776"><p>The <strong>time complexity</strong> of the problem is more important</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552147757389" name="837574" id="a1552147757389">
+        <label for="a1552147757389"><p>The <strong>space complexity</strong> of the problem is more important</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552147846535" name="837574" id="a1552147846535">
+        <label for="a1552147846535"><p>It really depends on the problem</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    It really depends on the problem
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="02. Quantifying Efficiency.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Efficiency')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

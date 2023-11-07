@@ -1,0 +1,633 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Input Size and Efficiency</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Efficiency</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Efficiency.html">01. Efficiency</a>
+    </li>
+    <li class="">
+      <a href="02. Quantifying Efficiency.html">02. Quantifying Efficiency</a>
+    </li>
+    <li class="">
+      <a href="03. Input Size and Efficiency.html">03. Input Size and Efficiency</a>
+    </li>
+    <li class="">
+      <a href="04. Big O Notation (12).html">04. Big O Notation (1/2)</a>
+    </li>
+    <li class="">
+      <a href="05. Big O Notation (22).html">05. Big O Notation (2/2)</a>
+    </li>
+    <li class="">
+      <a href="06. Worst Case and Approximation.html">06. Worst Case and Approximation</a>
+    </li>
+    <li class="">
+      <a href="07. Efficiency Practice.html">07. Efficiency Practice</a>
+    </li>
+    <li class="">
+      <a href="08. Space Complexity.html">08. Space Complexity</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">03. Input Size and Efficiency</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="input-size-and-efficiency">Input size and efficiency</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Here's one of our functions from the last page:</p>
+<pre><code class="python language-python">def some_function(n):
+    for i in range(2):
+        n += 100
+    return n</code></pre>
+<p>Suppose we call this function and give it the value <code>1</code>, like this:</p>
+<pre><code class="python language-python">some_function(1)</code></pre>
+<p>And then we call it again, but give it the input <code>1000</code>:</p>
+<pre><code class="python language-python">some_function(1000)</code></pre>
+<p>Will this change the number of lines of code that get run?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552154714489" name="837627" id="a1552154714489">
+        <label for="a1552154714489"><p>Yes — <code>some_function(1000)</code> will involve running more lines of code.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552154891521" name="837627" id="a1552154891521">
+        <label for="a1552154891521"><p>Yes — <code>some_function(1)</code> will involve running more lines of code.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552154918993" name="837627" id="a1552154918993">
+        <label for="a1552154918993"><p>No — the same number of lines will run in both cases.</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    No — the same number of lines will run in both cases.
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Now, here's a new function:</p>
+<pre><code class="python language-python">def say_hello(n):
+    for i in range(n):
+        print("Hello!")</code></pre>
+<p>Suppose we call it like this:</p>
+<pre><code class="python language-python">say_hello(3)</code></pre>
+<p>And then we call it like this:</p>
+<pre><code class="python language-python">say_hello(1000)</code></pre>
+<p>Will this change the number of lines of code that get run?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552155001087" name="837628" id="a1552155001087">
+        <label for="a1552155001087"><p>Yes — <code>say_hello(3)</code> will involve running more lines of code.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552155292446" name="837628" id="a1552155292446">
+        <label for="a1552155292446"><p>Yes — <code>say_hello(1000)</code> will involve running more lines of code.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552155298542" name="837628" id="a1552155298542">
+        <label for="a1552155298542"><p>No — the same number of lines will run in both cases.</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    Yes — `say_hello(1000)` will involve running more lines of code.
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>This highlights a key idea:</p>
+<blockquote>
+  <p>As the input to an algorithm increases, the time required to run the algorithm may also increase.</p>
+</blockquote>
+<p>Notice that we said <em>may</em> increase. As we saw with the above examples, input size sometimes affects the run-time of the program and sometimes doesn't—it depends on the program.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="the-rate-of-increase">The rate of increase</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p><strong>QUIZ QUESTION:</strong>: <p>Let's look again at this function from above:</p>
+<pre><code class="python language-python">def say_hello(n):
+    for i in range(n):
+        print("Hello!")</code></pre>
+<p>Below are some different function calls. Match each one with the number of lines of code that will get run.</p></p>
+  <p><strong>ANSWER CHOICES:</strong></p>
+  <button class="btn btn-primary"><p><code>say_hello(1)</code></p></button>
+  <button class="btn btn-primary"><p><code>say_hello(2)</code></p></button>
+  <button class="btn btn-primary"><p><code>say_hello(3)</code></p></button>
+  <button class="btn btn-primary"><p><code>say_hello(4)</code></p></button>
+
+  <br><br>
+
+  <table class="table">
+    <tr class="thead-dark table-hover">
+      <th>
+        <p>Function call</p>
+      </th>
+      <th>
+        <p>How many lines get run?</p>
+      </th>
+    </tr>
+
+    <tr>
+      <td><p>3</p></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><p>5</p></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><p>6</p></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><p>4</p></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+
+    <table class="table">
+      <tr class="thead-dark table-hover">
+        <th>
+          <p>Function call</p>
+        </th>
+        <th>
+          <p>How many lines get run?</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td>
+          <p>3</p>
+        </td>
+        <td>
+            <button class="btn btn-primary"><p><code>say_hello(1)</code></p></button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>5</p>
+        </td>
+        <td>
+            <button class="btn btn-primary"><p><code>say_hello(3)</code></p></button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>6</p>
+        </td>
+        <td>
+            <button class="btn btn-primary"><p><code>say_hello(4)</code></p></button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>4</p>
+        </td>
+        <td>
+            <button class="btn btn-primary"><p><code>say_hello(2)</code></p></button>
+        </td>
+      </tr>
+    </table>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Here's another question about that same function (from the above exercise). When we increase the size of the input <code>n</code> by 1, how many more lines of code get run?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552156142422" name="837637" id="a1552156142422">
+        <label for="a1552156142422"><p>When <code>n</code> goes up by 1, the number of lines run also goes up by 1.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552156180090" name="837637" id="a1552156180090">
+        <label for="a1552156180090"><p>When <code>n</code> goes up by 1, the number of lines run goes up by 2.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552156208209" name="837637" id="a1552156208209">
+        <label for="a1552156208209"><p>When <code>n</code> goes up by 1, the number of lines run goes up by 4.</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    When `n` goes up by 1, the number of lines run also goes up by 1.
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>So here's one thing that we know about this function: As the input increases, the number of lines executed also increases.</p>
+<p>But we can go further than that! We can also say that <em>as the input increases, the number of lines executed increases by a proportional amount</em>. Increasing the input by 1 will cause 1 more line to get run. Increasing the input by 10 will cause 10 more lines to get run. Any change in the input is tied to a consistent, proportional change in the number of lines executed. This type of relationship is called a <strong>linear relationship</strong>, and we can see why if we graph it:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/01-n-comparison-computational-complexity.svg" alt="Derivative of [&quot;Comparison of computational complexity&quot;](https://commons.wikimedia.org/wiki/File:Comparison_computational_complexity.svg) by [Cmglee](https://commons.wikimedia.org/wiki/User:Cmglee). Used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en)." class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Derivative of <a href="https://commons.wikimedia.org/wiki/File:Comparison_computational_complexity.svg" target="_blank">"Comparison of computational complexity"</a> by <a href="https://commons.wikimedia.org/wiki/User:Cmglee" target="_blank">Cmglee</a>. Used under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC BY-SA 4.0</a>.</p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>The horizontal axis, <em>n</em>, represents the size of the input (in this case, the number of times we want to print <code>"Hello!"</code>).</p>
+<p>The vertical axis, <em>N</em>, represents the number of operations that will be performed. In this case, we're thinking of an "operation" as a single line of Python code (which is not the most accurate, but it will do for now).</p>
+<p>We can see that if we give the function a larger input, this will result in more operations. And we can see the <em>rate</em> at which this increase happens—the rate of increase is <em>linear</em>. Another way of saying this is that the number of operations increases at a constant rate.</p>
+<p>If that doesn't quite seem clear yet, it may help to contrast it with an alternative possibility—a function where the operations increase at a rate that is <em>not</em> constant.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p><strong>QUIZ QUESTION:</strong>: <p>Now here's a slightly modified version of the <code>say_hello</code> function:</p>
+<pre><code class="python language-python">def say_hello(n):
+    for i in range(n):
+        for i in range(n):
+            print("Hello!")</code></pre>
+<p>Notice that it has a <em>nested</em> loop (a <code>for</code> loop inside another <code>for</code> loop!).</p>
+<p>Below are some function calls. Match each one with the number of times <code>"Hello!"</code> will get printed.</p></p>
+  <p><strong>ANSWER CHOICES:</strong></p>
+  <button class="btn btn-primary"><p>say_hello(1)</p></button>
+  <button class="btn btn-primary"><p>say_hello(2)</p></button>
+  <button class="btn btn-primary"><p>say_hello(3)</p></button>
+  <button class="btn btn-primary"><p>say_hello(4)</p></button>
+
+  <br><br>
+
+  <table class="table">
+    <tr class="thead-dark table-hover">
+      <th>
+        <p>Function call</p>
+      </th>
+      <th>
+        <p>How many times will it print hello?</p>
+      </th>
+    </tr>
+
+    <tr>
+      <td><p>16</p></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><p>4</p></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><p>9</p></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><p>1</p></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+
+    <table class="table">
+      <tr class="thead-dark table-hover">
+        <th>
+          <p>Function call</p>
+        </th>
+        <th>
+          <p>How many times will it print hello?</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td>
+          <p>16</p>
+        </td>
+        <td>
+            <button class="btn btn-primary"><p>say_hello(4)</p></button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>4</p>
+        </td>
+        <td>
+            <button class="btn btn-primary"><p>say_hello(2)</p></button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>9</p>
+        </td>
+        <td>
+            <button class="btn btn-primary"><p>say_hello(3)</p></button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>1</p>
+        </td>
+        <td>
+            <button class="btn btn-primary"><p>say_hello(1)</p></button>
+        </td>
+      </tr>
+    </table>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Looking at the <code>say_hello</code> function from the above exercise, what can we say about the relationship between the input, <code>n</code>, and the number of times the function will print <code>"Hello!"</code>?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552156883255" name="837639" id="a1552156883255">
+        <label for="a1552156883255"><p>The function will always print <code>"Hello!"</code> <strong>the same number of times</strong> (changing <code>n</code> doesn't make a difference).</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552156958820" name="837639" id="a1552156958820">
+        <label for="a1552156958820"><p>The function will print <code>"Hello!"</code> <strong>exactly <code>n</code> times</strong> (so <code>say_hello(2)</code> will print <code>"Hello!"</code> twice).</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552156959308" name="837639" id="a1552156959308">
+        <label for="a1552156959308"><p>The function will print <code>"Hello!"</code> <strong>exactly <code>n</code>-squared times</strong> (so <code>say_hello(2)</code> will print <code>"Hello!"</code> 2*2 or four times).</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    The function will print `"Hello!"` **exactly `n`-squared times** (so `say_hello(2)` will print `"Hello!"` 2*2 or four times).
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Notice that when the input goes up by a certain amount, the number of operations goes up by the square of that amount. If the input is <span class="mathquill ud-math">2</span>, the number of operations is <span class="mathquill ud-math">2^2</span> or <span class="mathquill ud-math">4</span>. If the input is <span class="mathquill ud-math">3</span>, the number of operations is <span class="mathquill ud-math">3^2</span> or <span class="mathquill ud-math">9</span>.</p>
+<p>To state this in general terms, if we have an input, <span class="mathquill ud-math">n</span>, then the number of operations will be <span class="mathquill ud-math">n^2</span>. This is what we would call a <strong>quadratic</strong> rate of increase.</p>
+<p>Let's compare that with the <strong>linear</strong> rate of increase. In that case, when the input is <span class="mathquill ud-math">n</span>, the number of operations is also <span class="mathquill ud-math">n</span>.</p>
+<p>Let's graph both of these rates so we can see them together:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/02-n-squared-comparison-computational-complexity.svg" alt="Derivative of [&quot;Comparison of computational complexity&quot;](https://commons.wikimedia.org/wiki/File:Comparison_computational_complexity.svg) by [Cmglee](https://commons.wikimedia.org/wiki/User:Cmglee). Used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en)." class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Derivative of <a href="https://commons.wikimedia.org/wiki/File:Comparison_computational_complexity.svg" target="_blank">"Comparison of computational complexity"</a> by <a href="https://commons.wikimedia.org/wiki/User:Cmglee" target="_blank">Cmglee</a>. Used under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC BY-SA 4.0</a>.</p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Our code with the nested <code>for</code> loop exhibits the quadratic <span class="mathquill ud-math">n^2</span> relationship on the left.  Notice that this results in a <em>much</em> faster rate of increase. As we ask our code to print larger and larger numbers of <code>"Hellos!"</code>, the number of operations the computer has to perform shoots up very quickly—much more quickly than our other function, which shows a linear increase.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>This brings us to a second key point. We can add it to what we said earlier:</p>
+<blockquote>
+  <p>As the input to an algorithm increases, the time required to run the algorithm may also increase—<strong>and different algorithms may increase at different <em>rates</strong></em>.</p>
+</blockquote>
+<p>Notice that if <code>n</code> is very small, it doesn't really matter which function we use—but as we put in larger values for <code>n</code>, the function with the nested loop will quickly become far less efficient.</p>
+<p>We've looked here only at a couple of different rates—linear and quadratic. But there are many other possibilities. Here we'll show some of the common types of rates that come up when designing algorithms:</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/00-all-comparison-computational-complexity.svg" alt="[&quot;Comparison of computational complexity&quot;](https://commons.wikimedia.org/wiki/File:Comparison_computational_complexity.svg) by [Cmglee](https://commons.wikimedia.org/wiki/User:Cmglee). Used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en)." class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><a href="https://commons.wikimedia.org/wiki/File:Comparison_computational_complexity.svg" target="_blank">"Comparison of computational complexity"</a> by <a href="https://commons.wikimedia.org/wiki/User:Cmglee" target="_blank">Cmglee</a>. Used under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC BY-SA 4.0</a>.</p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>We'll look at some of these other <em>orders</em> as we go through the class. But for now, notice how dramatic a difference there is here between them! Hopefully you can now see that this idea of the <em>order</em> or <em>rate of increase</em> in the run-time of an algorithm is an essential concept when designing algorithms.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="order">Order</h1>
+<p>We should note that when people refer to the <em>rate of increase</em> of an algorithm, they will sometimes instead use the term <em>order</em>. Or to put that another way:</p>
+<blockquote>
+  <p>The <em>rate of increase</em> of an algorithm is also referred to as the <strong>order</strong> of the algorithm.</p>
+</blockquote>
+<p>For example, instead of saying "this relationship has a linear rate of increase", we could instead say, "the <em>order</em> of this relationship is linear".</p>
+<p>On the next page, we'll introduce something called <em>Big O Notation</em>, and you'll see that the "O" in the name refers to the <strong>o</strong>rder of the rate of increase.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="04. Big O Notation (12).html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Input Size and Efficiency')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

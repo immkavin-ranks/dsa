@@ -1,0 +1,25 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.899
+We've been talking a lot about time efficiency.
+
+00:00:02.899 --> 00:00:07.455
+But you can actually use the same notation to refer to space efficiency too.
+
+00:00:07.455 --> 00:00:10.620
+For example, let's say you needed to copy over
+
+00:00:10.619 --> 00:00:14.084
+your input string three times in your code for some reason.
+
+00:00:14.085 --> 00:00:17.580
+Then the space efficiency would look something like this.
+
+00:00:17.579 --> 00:00:21.539
+Space efficiency is asked less frequently in interviews but
+
+00:00:21.539 --> 00:00:26.049
+it's definitely something you should consider because it will come up from time to time.
+

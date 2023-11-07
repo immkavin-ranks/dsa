@@ -1,0 +1,392 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Big O Notation (1/2)</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Efficiency</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Efficiency.html">01. Efficiency</a>
+    </li>
+    <li class="">
+      <a href="02. Quantifying Efficiency.html">02. Quantifying Efficiency</a>
+    </li>
+    <li class="">
+      <a href="03. Input Size and Efficiency.html">03. Input Size and Efficiency</a>
+    </li>
+    <li class="">
+      <a href="04. Big O Notation (12).html">04. Big O Notation (1/2)</a>
+    </li>
+    <li class="">
+      <a href="05. Big O Notation (22).html">05. Big O Notation (2/2)</a>
+    </li>
+    <li class="">
+      <a href="06. Worst Case and Approximation.html">06. Worst Case and Approximation</a>
+    </li>
+    <li class="">
+      <a href="07. Efficiency Practice.html">07. Efficiency Practice</a>
+    </li>
+    <li class="">
+      <a href="08. Space Complexity.html">08. Space Complexity</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">04. Big O Notation (1/2)</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="big-o-notation">Big O Notation</h1>
+<p>When describing the efficiency of an algorithm, we could say something like "the run-time of the algorithm increases linearly with the input size". This can get wordy and it also lacks precision. So as an alternative, mathematicians developed a form of notation called <strong>big O notation</strong>.</p>
+<p>The "O" in the name refers to the <em>order</em> of the function or algorithm in question. And that makes sense, because big O notation is used to describe the order—or rate of increase—in the run-time of an algorithm, in terms of the input size (<code>n</code>).</p>
+<p>In this next video, Brynn will show some different examples of what the notation would actually look like in practice. This likely won't "click" for you right away, but don't worry—once you've gotten some experience applying it to real problems, it will be much more concrete.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>Notation Intro V3</p></h3>
+  <video controls>
+  <source src="04. Notation Intro V3-QF4hPt1WHog.mp4" type="video/mp4">
+
+  <track default="true" kind="subtitles" srclang="en" src="04. Notation Intro V3-QF4hPt1WHog.en.vtt" label="en">
+</video>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>When you see some Big O notation, such as <strong>O(2n + 2)</strong>, what does <strong>n</strong> refer to?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552174315636" name="837649" id="a1552174315636">
+        <label for="a1552174315636"><p>The amount of time (usually in milliseconds) your algorithm will take to run.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552174344946" name="837649" id="a1552174344946">
+        <label for="a1552174344946"><p>The amount of memory (usually in kilobytes) that your algorithm will require.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552174349395" name="837649" id="a1552174349395">
+        <label for="a1552174349395"><p>The length of the input to your algorithm.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552174357154" name="837649" id="a1552174357154">
+        <label for="a1552174357154"><p>The length of the output from your algorithm.</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    The length of the input to your algorithm.
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Here's the cipher pseudocode Brynn showed in the video:</p>
+<pre><code class="text language-text">function decode(input):
+    create output string
+    for each letter in input:
+        get new_letter from letter's location in cipher
+        add new_letter to output
+    return output</code></pre>
+<p>Brynn estimated the efficiency as <strong>O(2n + 2)</strong>. Suppose the input string is <code>"jzqh"</code>. What is <code>n</code> in this case?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552226010830" name="837763" id="a1552226010830">
+        <label for="a1552226010830"><p>1</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552226025529" name="837763" id="a1552226025529">
+        <label for="a1552226025529"><p>2</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552226026505" name="837763" id="a1552226026505">
+        <label for="a1552226026505"><p>3</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552226027487" name="837763" id="a1552226027487">
+        <label for="a1552226027487"><p>4</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552226037128" name="837763" id="a1552226037128">
+        <label for="a1552226037128"><p>5</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    4
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Which of these is the same as <strong>O(1)?</strong></p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552174201212" name="837648" id="a1552174201212">
+        <label for="a1552174201212"><p><strong>O(0n + 1)</strong></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552174251337" name="837648" id="a1552174251337">
+        <label for="a1552174251337"><p><strong>O(n + 1))</strong></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552174267450" name="837648" id="a1552174267450">
+        <label for="a1552174267450"><p><strong>O(n)</strong></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552174279282" name="837648" id="a1552174279282">
+        <label for="a1552174279282"><p><strong>O(n + 0)</strong></p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    **O(0n + 1)**
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Here's one of the functions we looked at on the last page:</p>
+<pre><code class="python language-python">def say_hello(n):
+    for i in range(n):
+        print("Hello!")</code></pre>
+<p>Which of these would best approximate the efficiency using big O notation?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1553136445278" name="840566" id="a1553136445278">
+        <label for="a1553136445278"><p><span class="mathquill ud-math">n</span></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553136626664" name="840566" id="a1553136626664">
+        <label for="a1553136626664"><p><span class="mathquill ud-math">n^2</span></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553136671589" name="840566" id="a1553136671589">
+        <label for="a1553136671589"><p><span class="mathquill ud-math">log(n)</span></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553136677654" name="840566" id="a1553136677654">
+        <label for="a1553136677654"><p><span class="mathquill ud-math">2^n</span></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553136701470" name="840566" id="a1553136701470">
+        <label for="a1553136701470"><p><span class="mathquill ud-math">{\sqrt n}</span></p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+     <span class="mathquill">n</span>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Here's the other function we looked at on the last page:</p>
+<pre><code class="python language-python">def say_hello(n):
+    for i in range(n):
+        for i in range(n):
+            print("Hello!")</code></pre>
+<p>Again, which of these would best approximate the efficiency using big O notation?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1553136810449" name="840567" id="a1553136810449">
+        <label for="a1553136810449"><p><span class="mathquill ud-math">n</span></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553136863423" name="840567" id="a1553136863423">
+        <label for="a1553136863423"><p><span class="mathquill ud-math">n^2</span></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553136867847" name="840567" id="a1553136867847">
+        <label for="a1553136867847"><p><span class="mathquill ud-math">log(n)</span></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553136873496" name="840567" id="a1553136873496">
+        <label for="a1553136873496"><p><span class="mathquill ud-math">2^n</span></p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553136879992" name="840567" id="a1553136879992">
+        <label for="a1553136879992"><p><span class="mathquill ud-math">{\sqrt n}</span></p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+     <span class="mathquill">n^2</span>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="05. Big O Notation (22).html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('04. Big O Notation (1/2)')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

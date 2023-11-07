@@ -1,0 +1,331 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Efficiency Practice</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Efficiency</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Efficiency.html">01. Efficiency</a>
+    </li>
+    <li class="">
+      <a href="02. Quantifying Efficiency.html">02. Quantifying Efficiency</a>
+    </li>
+    <li class="">
+      <a href="03. Input Size and Efficiency.html">03. Input Size and Efficiency</a>
+    </li>
+    <li class="">
+      <a href="04. Big O Notation (12).html">04. Big O Notation (1/2)</a>
+    </li>
+    <li class="">
+      <a href="05. Big O Notation (22).html">05. Big O Notation (2/2)</a>
+    </li>
+    <li class="">
+      <a href="06. Worst Case and Approximation.html">06. Worst Case and Approximation</a>
+    </li>
+    <li class="">
+      <a href="07. Efficiency Practice.html">07. Efficiency Practice</a>
+    </li>
+    <li class="">
+      <a href="08. Space Complexity.html">08. Space Complexity</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">07. Efficiency Practice</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div class="jumbotron">
+  <h3>Workspace</h3>
+
+  <p class="lead">This section contains either a workspace (it can be a <a href="http://jupyter.org/" target="_blank">Jupyter
+      Notebook</a> workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto <a href="https://github.com/udacity"
+      target="_blank">https://github.com/udacity</a>, so you may be able to download them there.</p>
+
+  <h4>Workspace Information:</h4>
+
+  <ul>
+    <li><strong>Default file path:</strong> </li>
+    <li><strong>Workspace type:</strong> jupyter</li>
+    <li>
+      <strong>Opened files (when workspace is loaded):</strong>
+      n/a
+    </li>
+
+  </ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>Efficiency Quiz 1</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>What is the run time analysis of the following code:</p>
+<pre><code>def main(x,y):
+
+    if True:
+        z = x + y
+
+   for i in range(10):
+        z+=i
+
+  return z</code></pre></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1553287714614" name="841150" id="a1553287714614">
+        <label for="a1553287714614"><p>O(log(n))</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553287846991" name="841150" id="a1553287846991">
+        <label for="a1553287846991"><p>O(n)</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553287863489" name="841150" id="a1553287863489">
+        <label for="a1553287863489"><p>O(n^2)</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553287888933" name="841150" id="a1553287888933">
+        <label for="a1553287888933"><p>O(1)</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    O(1)
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>Efficiency Quiz 2</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>What is the run time analysis of the following code:</p>
+<pre><code>def main(list_1,list_2):
+
+    count = 0
+
+    for item_1 in list_1:
+        for item_2 in list_2:
+            if item_1 == item_2:
+                count+=1
+
+    return count</code></pre></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1553292836723" name="841172" id="a1553292836723">
+        <label for="a1553292836723"><p>O(n)</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553293251622" name="841172" id="a1553293251622">
+        <label for="a1553293251622"><p>O(log(n))</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553293252253" name="841172" id="a1553293252253">
+        <label for="a1553293252253"><p>O(n^2)</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553293252764" name="841172" id="a1553293252764">
+        <label for="a1553293252764"><p>O(1)</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    O(n^2)
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>What is the simplification of this run time analysis: <code>4n^2 + 3n + 7</code> ?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1553530793802" name="841211" id="a1553530793802">
+        <label for="a1553530793802"><p>4n^2+3n</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553530852626" name="841211" id="a1553530852626">
+        <label for="a1553530852626"><p>4n^2 + 3n + 7</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553530853256" name="841211" id="a1553530853256">
+        <label for="a1553530853256"><p>4n^2</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1553530881554" name="841211" id="a1553530881554">
+        <label for="a1553530881554"><p>n^2</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    n^2
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="resources">Resources</h1>
+<p><a href="http://bigocheatsheet.com" target="_blank">Big-O Cheatsheet</a></p>
+<p><a href="https://wiki.python.org/moin/TimeComplexity" target="_blank">Python Complexities</a></p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="08. Space Complexity.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('07. Efficiency Practice')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

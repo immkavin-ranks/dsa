@@ -1,0 +1,43 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.190
+Since the amount of steps can vary widely based on the specific implementations,
+
+00:00:05.190 --> 00:00:10.710
+we normally use approximations when talking about efficiency in Big O notation.
+
+00:00:10.710 --> 00:00:14.020
+Since the efficiency of the pseudocode we wrote before
+
+00:00:14.019 --> 00:00:17.309
+could end up looking like any of these and even more,
+
+00:00:17.309 --> 00:00:19.964
+we would say that the efficiency is actually
+
+00:00:19.964 --> 00:00:24.660
+about big O of n. If you're running code for production,
+
+00:00:24.660 --> 00:00:29.129
+you definitely care about the number of computations and want to minimize it.
+
+00:00:29.129 --> 00:00:31.105
+However, in an interview,
+
+00:00:31.105 --> 00:00:34.295
+your interviewer doesn't care that you can do that exactly,
+
+00:00:34.295 --> 00:00:36.590
+but just wants to know that you are thinking about
+
+00:00:36.590 --> 00:00:39.360
+efficiency and can calculate it if you need to.
+
+00:00:39.359 --> 00:00:42.685
+By approximating, we're really saying,
+
+00:00:42.685 --> 00:00:48.210
+"Some number of computations must be performed for each letter in the input."
+

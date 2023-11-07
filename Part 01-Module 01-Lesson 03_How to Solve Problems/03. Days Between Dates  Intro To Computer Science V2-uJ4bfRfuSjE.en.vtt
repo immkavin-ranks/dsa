@@ -1,0 +1,82 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.070
+The problem that we'll use for this lesson,
+
+00:00:02.070 --> 00:00:07.335
+was one that was suggested by one of our students by Mathias Watson from Sweden.
+
+00:00:07.335 --> 00:00:09.285
+Here's how he state the problem.
+
+00:00:09.285 --> 00:00:11.610
+This is days old number two and it says,
+
+00:00:11.610 --> 00:00:13.170
+"Given your birthday and the current date,
+
+00:00:13.170 --> 00:00:15.015
+calculate your age in days."
+
+00:00:15.015 --> 00:00:17.025
+You have to be aware about leap days,
+
+00:00:17.025 --> 00:00:18.780
+dates are complicated things.
+
+00:00:18.780 --> 00:00:21.235
+You can assume that, the inputs are correct dates.
+
+00:00:21.235 --> 00:00:23.250
+Then there's an example here to say that,
+
+00:00:23.250 --> 00:00:25.130
+"Well, if you were born on January 1st,
+
+00:00:25.130 --> 00:00:28.280
+2012 and today is January 2nd,
+
+00:00:28.280 --> 00:00:29.600
+2012, you're one day old.
+
+00:00:29.600 --> 00:00:31.295
+So, this is a great practice problem.
+
+00:00:31.295 --> 00:00:33.260
+Thanks Matthias for suggesting it,
+
+00:00:33.260 --> 00:00:35.290
+and it's generated lots of discussion on the forums.
+
+00:00:35.290 --> 00:00:38.180
+So, I wanted to step through how I would solve this problem.
+
+00:00:38.180 --> 00:00:39.845
+If you have not tried it yourself,
+
+00:00:39.845 --> 00:00:41.840
+I would strongly encourage you to do so.
+
+00:00:41.840 --> 00:00:45.755
+There's a link to the problem in the additional homework to try it yourself.
+
+00:00:45.755 --> 00:00:47.540
+I suggest keeping notes on how you solve it.
+
+00:00:47.540 --> 00:00:48.770
+Whether you're able to solve it or not,
+
+00:00:48.770 --> 00:00:50.885
+I hope you'll come back and watch the rest of this lesson.
+
+00:00:50.885 --> 00:00:53.810
+If you got stuck, this lesson will give you some ideas of how to get unstuck.
+
+00:00:53.810 --> 00:00:55.520
+Then, when you get unstuck, go back to trying to
+
+00:00:55.520 --> 00:00:57.920
+solve it on your own before continuing with the lesson.
+
