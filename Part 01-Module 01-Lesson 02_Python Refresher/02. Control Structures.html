@@ -1,0 +1,501 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Control Structures</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Python Refresher</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Prepared for Programming.html">01. Prepared for Programming</a>
+    </li>
+    <li class="">
+      <a href="02. Control Structures.html">02. Control Structures</a>
+    </li>
+    <li class="">
+      <a href="03. Functions  Generators.html">03. Functions &amp; Generators</a>
+    </li>
+    <li class="">
+      <a href="04. Classes.html">04. Classes</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">02. Control Structures</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="control-structures-review">Control Structures Review</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="iteration-with-loops">Iteration with Loops</h2>
+<p>To iterate in Python, there are several options. A <code>for</code> loop can be used to iterate through a list or dictionary. Instead of the traditional <code>for</code> loop where we initialize a value <code>i</code> and increase / decrease it till it reaches an end value, Python's <code>for</code> loops are <code>for-each</code> in nature. This means that when you are iterating using a <code>for loop</code> over a list, you actually iterate over the items of that list. </p>
+<p>If you also need the index values from the list while iterating, another possibility is to use <code>enumerate</code>, which is shown in an example below.</p>
+<p>An additional way to iterate in Python is with a <code>while</code> loop. Just as in other programming languages, the <code>while</code> loop will repeat while some conditional statement is true. You will see more on conditional statements shortly, but first, here are examples of iteration with <code>for</code> and <code>while</code> loops.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <pre><code class="Python language-Python"># Examples of iteration with for loops.
+
+my_list = [0, 1, 2, 3, 4, 5]
+
+# Print each value in my_list. Note you can use the "in" keyword to iterate over a list.
+for item in my_list:
+    print('The value of item is: ' + str(item))
+
+# Print each index and value pair.
+for i, value in enumerate(my_list):
+    print('The index value is: ' + str(i) + '. The value at i is: ' + str(value))
+
+# Print each number from 0 to 9 using a while loop.
+i = 0
+while(i &lt; 10):
+    print(i)
+    i += 1
+
+# Print each key and dictionary value. Note that you can use the "in" keyword 
+# to iterate over dictionary keys.
+my_dict = {'a': 'jill', 'b': 'tom', 'c': 'tim'}
+for key in my_dict:
+    print(key + ', ' + my_dict[key])</code></pre>
+<p>Remember that Python requires correct indentation for code blocks to be interpreted correctly. Indentation for a block is usually four spaces, or one tab length.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>What would be the output of the following code?</p>
+<pre><code>my_dict = {'a':[0, 1, 2, 3], 'b':[0, 1, 2, 3], 'c':[0, 1, 2, 3], 'd':[0, 1, 2, 3]}
+i = 0
+output = []
+for key in my_dict:
+    output.append(my_dict[key][i])
+    i += 1
+print(output)</code></pre></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1550179061054" name="825938" id="a1550179061054">
+        <label for="a1550179061054"><p>[0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1550179066869" name="825938" id="a1550179066869">
+        <label for="a1550179066869"><p>['a', 'b', 'c', 'd']</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1550179067348" name="825938" id="a1550179067348">
+        <label for="a1550179067348"><p>[0, 1, 2, 3]</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    [0, 1, 2, 3]
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="conditional-statements">Conditional Statements</h2>
+<p>Conditional statements use boolean logic to help guide our decision process: the statement is true or false. These statements are structured using comparison operators: greater than (<code>&gt;</code>), less than (<code>&lt;</code>), and equal to (<code>==</code>).</p>
+<p>Using conditional statements for control flow is accomplished in Python with the keywords: <code>if</code>, <code>else</code>, and <code>elif</code>. When doing multiple comparisons in Python, one after the other, the first comparison always uses<code>if</code> and the last comparison generally uses <code>else</code>. If additional control flow is needed, <code>elif</code> statements can be used; <code>elif</code> stands for "else if". </p>
+<pre><code class="Python language-Python">num = 5
+if num &lt; 5:
+    print('The number is smaller than 5.')
+elif num == 5:
+    print('The number equals 5.')
+else:
+    print('The number is greater than 5.')</code></pre>
+<p>The code above would print: <code>The number equals 5.</code></p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="control-structure-practice">Control Structure Practice</h1>
+<p>In the following exercise you will finish writing <code>smallest_positive</code> which is a function that finds the smallest positive number in a list.</p>
+<h2 id="exercise-1">Exercise 1</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+
+  <h4>Start Quiz:</h4>
+  <div>
+  <div class="nav nav-tabs nav-fill" role="tablist" id="question-tabs">
+    <a href="#825941-data-py" class="nav-item nav-link  active show" id="tab-825941-data-py" data-toggle="tab" role="tab"
+      aria-controls="825941-data-py" aria-selected="true">data.py</a>
+    <a href="#825941-solution-py" class="nav-item nav-link " id="tab-825941-solution-py" data-toggle="tab" role="tab"
+      aria-controls="825941-solution-py" aria-selected="false">solution.py</a>
+  </div>
+
+  <div class="tab-content" style="padding: 20px 0;" id="question-tab-contents">
+    <div class="tab-pane  active show" id="825941-data-py" aria-labelledby="tab-825941-data-py" role="tabpanel">
+      <pre><code></code>def smallest_positive(in_list):
+    # TODO: Define a control structure that finds the smallest positive
+    # number in in_list and returns the correct smallest number.
+    
+    return 0
+
+# Test cases
+
+print(smallest_positive([4, -6, 7, 2, -4, 10]))
+# Correct output: 2
+
+print(smallest_positive([.2, 5, 3, -.1, 7, 7, 6]))
+# Correct output: 0.2</code></pre>
+    </div>
+    <div class="tab-pane " id="825941-solution-py" aria-labelledby="tab-825941-solution-py" role="tabpanel">
+      <pre><code></code>def smallest_positive(in_list):
+    # TODO: Define a control structure that finds the smallest positive
+    # number in in_list and returns the correct smallest number.
+    smallest_pos &#x3D; None
+    for num in in_list:
+        if num &gt; 0:
+            # Note: we use a logical &quot;or&quot; in this solution to form 
+            # the conditional statement, although this was
+            # not introduced above. 
+            if smallest_pos &#x3D;&#x3D; None or num &lt; smallest_pos:
+                smallest_pos &#x3D; num
+    return smallest_pos
+
+# Test cases
+
+print(smallest_positive([4, -6, 7, 2, -4, 10]))
+# Correct output: 2
+
+print(smallest_positive([.2, 5, 3, -.1, 7, 7, 6]))
+# Correct output: 0.2
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="exercise-2">Exercise 2</h2>
+<p>Now let's assume you are planning on taking some additional courses at your local educational institution, and you have acquired some data about the available courses and when they will be offered. In the following exercise, you will write control structures to process the data and return the semesters when a given course is offered.</p>
+<p>You will need to complete the function <code>when_offered(courses, course)</code>. This function accepts a "courses" data structure and a "course" string. The function should return a list of strings representing the semesters when the input course is offered. See the two test cases below for examples of correct results.</p>
+<p>Since the <code>when_offered</code> function accepts a dictionary data structure, you will find the</p>
+<pre><code class="Python language-Python">for &lt;key&gt; in &lt;dictionary&gt;:                  
+    &lt;block&gt;</code></pre>
+<p>construct useful, as this loops through the key values in a dictionary.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+
+  <h4>Start Quiz:</h4>
+  <div>
+  <div class="nav nav-tabs nav-fill" role="tablist" id="question-tabs">
+    <a href="#825944-data-py" class="nav-item nav-link  active show" id="tab-825944-data-py" data-toggle="tab" role="tab"
+      aria-controls="825944-data-py" aria-selected="true">data.py</a>
+    <a href="#825944-solution-py" class="nav-item nav-link " id="tab-825944-solution-py" data-toggle="tab" role="tab"
+      aria-controls="825944-solution-py" aria-selected="false">solution.py</a>
+  </div>
+
+  <div class="tab-content" style="padding: 20px 0;" id="question-tab-contents">
+    <div class="tab-pane  active show" id="825944-data-py" aria-labelledby="tab-825944-data-py" role="tabpanel">
+      <pre><code></code># This exercise uses a data structure that stores Udacity course information.
+# The data structure format is:
+
+#    { &lt;semester&gt;: { &lt;class&gt;: { &lt;property&gt;: &lt;value&gt;, ... },
+#                                     ... },
+#      ... }
+
+
+courses &#x3D; {
+    &#x27;spring2020&#x27;: { &#x27;cs101&#x27;: {&#x27;name&#x27;: &#x27;Building a Search Engine&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Dave&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Peter C.&#x27;},
+                 &#x27;cs373&#x27;: {&#x27;name&#x27;: &#x27;Programming a Robotic Car&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Sebastian&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Andy&#x27;}},
+    &#x27;fall2020&#x27;: { &#x27;cs101&#x27;: {&#x27;name&#x27;: &#x27;Building a Search Engine&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Dave&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Sarah&#x27;},
+                 &#x27;cs212&#x27;: {&#x27;name&#x27;: &#x27;The Design of Computer Programs&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Peter N.&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Andy&#x27;,
+                           &#x27;prereq&#x27;: &#x27;cs101&#x27;},
+                 &#x27;cs253&#x27;: {&#x27;name&#x27;: &#x27;Web Application Engineering - Building a Blog&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Steve&#x27;,
+                           &#x27;prereq&#x27;: &#x27;cs101&#x27;},
+                 &#x27;cs262&#x27;: {&#x27;name&#x27;: &#x27;Programming Languages - Building a Web Browser&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Wes&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Peter C.&#x27;,
+                           &#x27;prereq&#x27;: &#x27;cs101&#x27;},
+                 &#x27;cs373&#x27;: {&#x27;name&#x27;: &#x27;Programming a Robotic Car&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Sebastian&#x27;},
+                 &#x27;cs387&#x27;: {&#x27;name&#x27;: &#x27;Applied Cryptography&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Dave&#x27;}},
+    &#x27;spring2044&#x27;: { &#x27;cs001&#x27;: {&#x27;name&#x27;: &#x27;Building a Quantum Holodeck&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Dorina&#x27;},
+                        &#x27;cs003&#x27;: {&#x27;name&#x27;: &#x27;Programming a Robotic Robotics Teacher&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Jasper&#x27;},
+                     }
+    }
+
+
+def when_offered(courses, course):
+    # TODO: Fill out the function here.
+    
+    # TODO: Return list of semesters here.
+    return None
+
+
+
+print(when_offered(courses, &#x27;cs101&#x27;))
+# Correct result: 
+# [&#x27;fall2020&#x27;, &#x27;spring2020&#x27;]
+
+print(when_offered(courses, &#x27;bio893&#x27;))
+# Correct result: 
+# []
+</code></pre>
+    </div>
+    <div class="tab-pane " id="825944-solution-py" aria-labelledby="tab-825944-solution-py" role="tabpanel">
+      <pre><code></code># This exercise uses a data structure that stores Udacity course information.
+# The data structure format is:
+
+#    { &lt;semester&gt;: { &lt;class&gt;: { &lt;property&gt;: &lt;value&gt;, ... },
+#                                     ... },
+#      ... }
+
+
+courses &#x3D; {
+    &#x27;spring2020&#x27;: { &#x27;cs101&#x27;: {&#x27;name&#x27;: &#x27;Building a Search Engine&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Dave&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Peter C.&#x27;},
+                 &#x27;cs373&#x27;: {&#x27;name&#x27;: &#x27;Programming a Robotic Car&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Sebastian&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Andy&#x27;}},
+    &#x27;fall2020&#x27;: { &#x27;cs101&#x27;: {&#x27;name&#x27;: &#x27;Building a Search Engine&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Dave&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Sarah&#x27;},
+                 &#x27;cs212&#x27;: {&#x27;name&#x27;: &#x27;The Design of Computer Programs&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Peter N.&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Andy&#x27;,
+                           &#x27;prereq&#x27;: &#x27;cs101&#x27;},
+                 &#x27;cs253&#x27;: {&#x27;name&#x27;: &#x27;Web Application Engineering - Building a Blog&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Steve&#x27;,
+                           &#x27;prereq&#x27;: &#x27;cs101&#x27;},
+                 &#x27;cs262&#x27;: {&#x27;name&#x27;: &#x27;Programming Languages - Building a Web Browser&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Wes&#x27;,
+                           &#x27;assistant&#x27;: &#x27;Peter C.&#x27;,
+                           &#x27;prereq&#x27;: &#x27;cs101&#x27;},
+                 &#x27;cs373&#x27;: {&#x27;name&#x27;: &#x27;Programming a Robotic Car&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Sebastian&#x27;},
+                 &#x27;cs387&#x27;: {&#x27;name&#x27;: &#x27;Applied Cryptography&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Dave&#x27;}},
+    &#x27;spring2044&#x27;: { &#x27;cs001&#x27;: {&#x27;name&#x27;: &#x27;Building a Quantum Holodeck&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Dorina&#x27;},
+                        &#x27;cs003&#x27;: {&#x27;name&#x27;: &#x27;Programming a Robotic Robotics Teacher&#x27;,
+                           &#x27;teacher&#x27;: &#x27;Jasper&#x27;},
+                     }
+    }
+
+# In this exercise, you will need to complete the function 
+# when_offered(courses, course). This function accepts a &quot;courses&quot; 
+# data structure and a &quot;course&quot; string. 
+# The function should return a list of strings representing the semesters 
+# when the input course is offered. See the two test cases below for examples 
+# of correct results.
+
+
+def when_offered(courses, course):
+    # TODO: Fill out the function here.
+    semesters &#x3D; []
+    for semester in courses:
+        if course in courses[semester]:
+            semesters.append(semester)
+    # TODO: Return list of semesters here.
+    return semesters
+
+
+
+print(when_offered(courses, &#x27;cs101&#x27;))
+# Correct result: 
+# [&#x27;fall2020&#x27;, &#x27;spring2020&#x27;]
+
+print(when_offered(courses, &#x27;bio893&#x27;))
+# Correct result: 
+# []
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="03. Functions  Generators.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Control Structures')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

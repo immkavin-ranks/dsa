@@ -1,0 +1,420 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Classes</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Python Refresher</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Prepared for Programming.html">01. Prepared for Programming</a>
+    </li>
+    <li class="">
+      <a href="02. Control Structures.html">02. Control Structures</a>
+    </li>
+    <li class="">
+      <a href="03. Functions  Generators.html">03. Functions &amp; Generators</a>
+    </li>
+    <li class="">
+      <a href="04. Classes.html">04. Classes</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">04. Classes</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="python-classes-review">Python Classes Review</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="python-classes-overview">Python Classes Overview</h2>
+<p>A class is a structure in object-oriented programming that allows functions and related data to be grouped together.</p>
+<p>In a Python class, an important concept is <code>self</code>, which is used to reference a class instance's own variables and functions from within the class definition. For example, if we had a class called <code>Person</code> and we wanted the class instances to have a variable called <code>age</code>, we could store this information by using <code>self.age</code>.</p>
+<p>Also, if we wanted the class to have a function that would increment the age of the person, we could define a function inside this class called <code>def birthday(self)</code>. In order to be a class function, <code>birthday</code> needs to include the input variable <code>self</code>, as this is used for proper referencing within the class.</p>
+<p>Another important and commonly used function definition is the class initializer, <code>def __init__(self)</code>. The body of the initializer is where instance variable definitions should be added, and the initializer initializes all the variables once an instance of the class is created. Also, any input variables that a class needs to have, such as a name for the person can be passed into initializer function. </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Which of the following is a correct statement about using <code>self</code> in Python?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1552325081610" name="837951" id="a1552325081610">
+        <label for="a1552325081610"><p><code>self</code> is not necessary in Python, and is only included for clarity when writing code.</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1552325113685" name="837951" id="a1552325113685">
+        <label for="a1552325113685"><p><code>self</code> must be used when declaring a variable in an <code>__init__</code> function so that each instance of the class has its own copy of that variable.</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    `self` must be used when declaring a variable in an `__init__` function so that each instance of the class has its own copy of that variable.
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="examples-of-python-classes">Examples of Python Classes</h2>
+<p>Below is an example of a basic Person class. The class has two variables for name and age, along with three functions for initializing the class, incrementing the person’s age, and getting the person’s name.</p>
+<pre><code class="Python language-Python">class Person:
+    def __init__(self, name, age):
+        self.person_name = name
+        self.person_age = age
+
+    def birthday(self):
+        self.person_age += 1
+
+    def getName(self):
+        return self.person_name</code></pre>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Let’s look at an example for how to create an instance of the <code>Person</code> class using the class template above. We can then access that <code>Person</code>’s name:</p>
+<pre><code class="Python language-Python">bob = Person('Bob', 32)
+print(bob.getName())
+# prints Bob</code></pre>
+<p>Currently, we have one function for getting the class’s variable. This is called an Accessor. The other function that the class has is actually modifying one of the class’ variables, and that is called a Mutator. We can make our <code>Person</code> older by calling <code>birthday()</code></p>
+<pre><code class="Python language-Python">bob.birthday()
+print(bob.person_age)
+# prints 33</code></pre>
+<p>The birthday function call successfully increments the age of our <code>Person</code>. Also note that we can directly get the age of bob without using a function call. This is because the <code>Person</code> class variables are defined as public, so we can directly access them without a function call. If instead we wanted the <code>Person</code>’s age variable to be private to the class, in Python 3 we could put double underscores in front of the variable: <code>__person_age</code>. Then we would have to use a function call in order to retrieve it.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="python-class-practice">Python Class Practice</h1>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="exercise-1">Exercise 1</h2>
+<p>Now let's assume that the current month is April, and you want to use a <code>Person</code> class to help make use of information about the friends in your contacts list. In particular, you'd like to increment the age of all of your friends with birthdays in April. You would also like to know who they are, along with their current ages, so you can send them birthday cards. Finally, you would also like to figure out which month has the most friends with birthdays, so you can budget for all of the birthday cards you will need to buy.</p>
+<p>In the following exercise, the <code>Person</code> class will be provided for you, and you will be working with a list of instances of the class, representing friends in your contacts. This list is stored in the variable <code>people</code>.</p>
+<p>To complete the exercise, you will need to do two things:</p>
+<ol>
+<li>Complete the function <code>get_april_birthdays(people)</code>.  This function should return a dictionary with each name of your friend with an April birthday as a key, and their updated age as the value.</li>
+<li>Complete the function <code>get_most_common_month(people)</code>. This function should return the name of the month with the most number of birthdays among your friends.</li>
+</ol>
+<p>There is some testing code provided in <code>test()</code>, and there are more specific TODO instructions in each of the two functions mentioned.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+
+  <h4>Start Quiz:</h4>
+  <div>
+  <div class="nav nav-tabs nav-fill" role="tablist" id="question-tabs">
+    <a href="#837956-data-py" class="nav-item nav-link  active show" id="tab-837956-data-py" data-toggle="tab" role="tab"
+      aria-controls="837956-data-py" aria-selected="true">data.py</a>
+    <a href="#837956-solution-py" class="nav-item nav-link " id="tab-837956-solution-py" data-toggle="tab" role="tab"
+      aria-controls="837956-solution-py" aria-selected="false">solution.py</a>
+  </div>
+
+  <div class="tab-content" style="padding: 20px 0;" id="question-tab-contents">
+    <div class="tab-pane  active show" id="837956-data-py" aria-labelledby="tab-837956-data-py" role="tabpanel">
+      <pre><code></code>class Person:
+    def __init__(self, name, age, month):
+        self.name &#x3D; name
+        self.age &#x3D; age
+        self.birthday_month &#x3D; month
+        
+    def birthday(self):
+        self.age +&#x3D; 1
+
+def create_person_objects(names, ages, months):
+    my_data &#x3D; zip(names, ages, months)
+    person_objects &#x3D; []
+    for item in my_data:
+        person_objects.append(Person(*item))
+    return person_objects
+
+def get_april_birthdays(people):
+    # TODO:
+    # Increment &quot;age&quot; for all people with birthdays in April.
+    # Return a dictionary &quot;april_birthdays&quot; with the names of
+    # all people with April birthdays as keys, and their updated ages 
+    # as values. See the test below for an example expected output.
+    april_birthdays &#x3D; {}
+
+    
+    # TODO: Modify the return statement 
+    return
+
+def get_most_common_month(people):
+    # TODO:
+    # Use the &quot;months&quot; dictionary to record counts of birthday months
+    # for persons in the &quot;people&quot; data.
+    # Return the month with the largest number of birthdays.
+    months &#x3D; {&#x27;January&#x27;:0, &#x27;February&#x27;:0, &#x27;March&#x27;:0, &#x27;April&#x27;:0, &#x27;May&#x27;:0, 
+              &#x27;June&#x27;:0, &#x27;July&#x27;:0, &#x27;August&#x27;:0, &#x27;September&#x27;:0, &#x27;October&#x27;:0,
+              &#x27;November&#x27;:0, &#x27;December&#x27;:0}
+    
+    # TODO: Modify the return statement.
+    return
+
+
+def test():
+    # Here is the data for the test. Assume there is a single most common month.
+    names &#x3D; [&#x27;Howard&#x27;, &#x27;Richard&#x27;, &#x27;Jules&#x27;, &#x27;Trula&#x27;, &#x27;Michael&#x27;, &#x27;Elizabeth&#x27;, &#x27;Richard&#x27;, &#x27;Shirley&#x27;, &#x27;Mark&#x27;, &#x27;Brianna&#x27;, &#x27;Kenneth&#x27;, &#x27;Gwen&#x27;, &#x27;William&#x27;, &#x27;Rosa&#x27;, &#x27;Denver&#x27;, &#x27;Shelly&#x27;, &#x27;Sammy&#x27;, &#x27;Maryann&#x27;, &#x27;Kathleen&#x27;, &#x27;Andrew&#x27;, &#x27;Joseph&#x27;, &#x27;Kathleen&#x27;, &#x27;Lisa&#x27;, &#x27;Viola&#x27;, &#x27;George&#x27;, &#x27;Bonnie&#x27;, &#x27;Robert&#x27;, &#x27;William&#x27;, &#x27;Sabrina&#x27;, &#x27;John&#x27;, &#x27;Robert&#x27;, &#x27;Gil&#x27;, &#x27;Calvin&#x27;, &#x27;Robert&#x27;, &#x27;Dusty&#x27;, &#x27;Dario&#x27;, &#x27;Joeann&#x27;, &#x27;Terry&#x27;, &#x27;Alan&#x27;, &#x27;Rosa&#x27;, &#x27;Jeane&#x27;, &#x27;James&#x27;, &#x27;Rachel&#x27;, &#x27;Tu&#x27;, &#x27;Chelsea&#x27;, &#x27;Andrea&#x27;, &#x27;Ernest&#x27;, &#x27;Erica&#x27;, &#x27;Priscilla&#x27;, &#x27;Carol&#x27;, &#x27;Michael&#x27;, &#x27;Dale&#x27;, &#x27;Arthur&#x27;, &#x27;Helen&#x27;, &#x27;James&#x27;, &#x27;Donna&#x27;, &#x27;Patricia&#x27;, &#x27;Betty&#x27;, &#x27;Patricia&#x27;, &#x27;Mollie&#x27;, &#x27;Nicole&#x27;, &#x27;Ernest&#x27;, &#x27;Wendy&#x27;, &#x27;Graciela&#x27;, &#x27;Teresa&#x27;, &#x27;Nicole&#x27;, &#x27;Trang&#x27;, &#x27;Caleb&#x27;, &#x27;Robert&#x27;, &#x27;Paul&#x27;, &#x27;Nieves&#x27;, &#x27;Arleen&#x27;, &#x27;Milton&#x27;, &#x27;James&#x27;, &#x27;Lawrence&#x27;, &#x27;Edward&#x27;, &#x27;Susan&#x27;, &#x27;Patricia&#x27;, &#x27;Tana&#x27;, &#x27;Jessica&#x27;, &#x27;Suzanne&#x27;, &#x27;Darren&#x27;, &#x27;Arthur&#x27;, &#x27;Holly&#x27;, &#x27;Mary&#x27;, &#x27;Randal&#x27;, &#x27;John&#x27;, &#x27;Laura&#x27;, &#x27;Betty&#x27;, &#x27;Chelsea&#x27;, &#x27;Margaret&#x27;, &#x27;Angel&#x27;, &#x27;Jeffrey&#x27;, &#x27;Mary&#x27;, &#x27;Donald&#x27;, &#x27;David&#x27;, &#x27;Roger&#x27;, &#x27;Evan&#x27;, &#x27;Danny&#x27;, &#x27;William&#x27;]
+    ages  &#x3D; [17, 58, 79, 8, 10, 57, 4, 98, 19, 47, 81, 68, 48, 13, 39, 21, 98, 51, 49, 12, 24, 78, 36, 59, 3, 87, 94, 85, 43, 69, 15, 52, 57, 36, 52, 5, 52, 5, 33, 10, 71, 28, 70, 9, 25, 28, 76, 71, 22, 35, 35, 100, 9, 95, 69, 52, 66, 91, 39, 84, 65, 29, 20, 98, 30, 83, 30, 15, 88, 89, 24, 98, 62, 94, 86, 63, 34, 23, 23, 19, 10, 80, 88, 67, 17, 91, 85, 97, 29, 7, 34, 38, 92, 29, 14, 52, 94, 62, 70, 22]
+    months &#x3D; [&#x27;January&#x27;, &#x27;March&#x27;, &#x27;January&#x27;, &#x27;October&#x27;, &#x27;April&#x27;, &#x27;February&#x27;, &#x27;August&#x27;, &#x27;January&#x27;, &#x27;June&#x27;, &#x27;August&#x27;, &#x27;February&#x27;, &#x27;May&#x27;, &#x27;March&#x27;, &#x27;June&#x27;, &#x27;February&#x27;, &#x27;August&#x27;, &#x27;June&#x27;, &#x27;March&#x27;, &#x27;August&#x27;, &#x27;April&#x27;, &#x27;April&#x27;, &#x27;June&#x27;, &#x27;April&#x27;, &#x27;June&#x27;, &#x27;February&#x27;, &#x27;September&#x27;, &#x27;March&#x27;, &#x27;July&#x27;, &#x27;September&#x27;, &#x27;December&#x27;, &#x27;June&#x27;, &#x27;June&#x27;, &#x27;August&#x27;, &#x27;November&#x27;, &#x27;April&#x27;, &#x27;November&#x27;, &#x27;August&#x27;, &#x27;June&#x27;, &#x27;January&#x27;, &#x27;August&#x27;, &#x27;May&#x27;, &#x27;March&#x27;, &#x27;March&#x27;, &#x27;March&#x27;, &#x27;May&#x27;, &#x27;September&#x27;, &#x27;August&#x27;, &#x27;April&#x27;, &#x27;February&#x27;, &#x27;April&#x27;, &#x27;May&#x27;, &#x27;March&#x27;, &#x27;March&#x27;, &#x27;January&#x27;, &#x27;August&#x27;, &#x27;October&#x27;, &#x27;February&#x27;, &#x27;November&#x27;, &#x27;August&#x27;, &#x27;June&#x27;, &#x27;September&#x27;, &#x27;September&#x27;, &#x27;January&#x27;, &#x27;September&#x27;, &#x27;July&#x27;, &#x27;July&#x27;, &#x27;December&#x27;, &#x27;June&#x27;, &#x27;April&#x27;, &#x27;February&#x27;, &#x27;August&#x27;, &#x27;September&#x27;, &#x27;August&#x27;, &#x27;February&#x27;, &#x27;April&#x27;, &#x27;July&#x27;, &#x27;May&#x27;, &#x27;November&#x27;, &#x27;December&#x27;, &#x27;February&#x27;, &#x27;August&#x27;, &#x27;August&#x27;, &#x27;September&#x27;, &#x27;December&#x27;, &#x27;February&#x27;, &#x27;March&#x27;, &#x27;June&#x27;, &#x27;December&#x27;, &#x27;February&#x27;, &#x27;May&#x27;, &#x27;April&#x27;, &#x27;July&#x27;, &#x27;March&#x27;, &#x27;June&#x27;, &#x27;December&#x27;, &#x27;March&#x27;, &#x27;July&#x27;, &#x27;May&#x27;, &#x27;September&#x27;, &#x27;November&#x27;]
+    people &#x3D; create_person_objects(names, ages, months)
+
+    # Calls to the two functions you have completed.
+    print(get_april_birthdays(people))
+    print(get_most_common_month(people))
+
+
+
+test()
+# Expected result:
+# {&#x27;Michael&#x27;: 11, &#x27;Erica&#x27;: 72, &#x27;Carol&#x27;: 36, &#x27;Lisa&#x27;: 37, &#x27;Lawrence&#x27;: 87, &#x27;Joseph&#x27;: 25, &#x27;Margaret&#x27;: 35, &#x27;Andrew&#x27;: 13, &#x27;Dusty&#x27;: 53, &#x27;Robert&#x27;: 89}
+# August
+</code></pre>
+    </div>
+    <div class="tab-pane " id="837956-solution-py" aria-labelledby="tab-837956-solution-py" role="tabpanel">
+      <pre><code></code>class Person:
+    def __init__(self, name, age, month):
+        self.name &#x3D; name
+        self.age &#x3D; age
+        self.birthday_month &#x3D; month
+        
+    def birthday(self):
+        self.age +&#x3D; 1
+
+def create_person_objects(names, ages, months):
+    my_data &#x3D; zip(names, ages, months)
+    person_objects &#x3D; []
+    for item in my_data:
+        person_objects.append(Person(*item))
+    return person_objects
+
+def get_april_birthdays(people):
+    # TODO:
+    # Increment &quot;age&quot; for all people with birthdays in April.
+    # Return a dictionary &quot;april_birthdays&quot; with the names of
+    # all people with April birthdays as keys, and their updated ages 
+    # as values. See the test below for an example expected output.
+    april_birthdays &#x3D; {}
+    for person in people:
+        if person.birthday_month &#x3D;&#x3D; &#x27;April&#x27;:
+            person.age +&#x3D; 1
+            april_birthdays[person.name] &#x3D; person.age
+            
+    return april_birthdays
+
+def get_most_common_month(people):
+    # TODO: Use the &quot;months&quot; dictionary to record counts of 
+    # birthday months for persons in the &quot;people&quot; data.
+    # Return the month with the largest number of birthdays.
+    months &#x3D; {&#x27;January&#x27;:0, &#x27;February&#x27;:0, &#x27;March&#x27;:0, &#x27;April&#x27;:0, &#x27;May&#x27;:0, 
+              &#x27;June&#x27;:0, &#x27;July&#x27;:0, &#x27;August&#x27;:0, &#x27;September&#x27;:0, &#x27;October&#x27;:0,
+              &#x27;November&#x27;:0, &#x27;December&#x27;:0}
+
+    for person in people:
+        months[person.birthday_month] +&#x3D; 1
+
+    max_month &#x3D; None
+    max_value &#x3D; 0
+    for key in months.keys():
+        if months[key] &gt; max_value:
+            max_value &#x3D; months[key]
+            max_month &#x3D; key
+
+    return max_month
+
+
+
+def test():
+    # Here is the data for the test. Assume there is a single most common month.
+    names &#x3D; [&#x27;Howard&#x27;, &#x27;Richard&#x27;, &#x27;Jules&#x27;, &#x27;Trula&#x27;, &#x27;Michael&#x27;, &#x27;Elizabeth&#x27;, &#x27;Richard&#x27;, &#x27;Shirley&#x27;, &#x27;Mark&#x27;, &#x27;Brianna&#x27;, &#x27;Kenneth&#x27;, &#x27;Gwen&#x27;, &#x27;William&#x27;, &#x27;Rosa&#x27;, &#x27;Denver&#x27;, &#x27;Shelly&#x27;, &#x27;Sammy&#x27;, &#x27;Maryann&#x27;, &#x27;Kathleen&#x27;, &#x27;Andrew&#x27;, &#x27;Joseph&#x27;, &#x27;Kathleen&#x27;, &#x27;Lisa&#x27;, &#x27;Viola&#x27;, &#x27;George&#x27;, &#x27;Bonnie&#x27;, &#x27;Robert&#x27;, &#x27;William&#x27;, &#x27;Sabrina&#x27;, &#x27;John&#x27;, &#x27;Robert&#x27;, &#x27;Gil&#x27;, &#x27;Calvin&#x27;, &#x27;Robert&#x27;, &#x27;Dusty&#x27;, &#x27;Dario&#x27;, &#x27;Joeann&#x27;, &#x27;Terry&#x27;, &#x27;Alan&#x27;, &#x27;Rosa&#x27;, &#x27;Jeane&#x27;, &#x27;James&#x27;, &#x27;Rachel&#x27;, &#x27;Tu&#x27;, &#x27;Chelsea&#x27;, &#x27;Andrea&#x27;, &#x27;Ernest&#x27;, &#x27;Erica&#x27;, &#x27;Priscilla&#x27;, &#x27;Carol&#x27;, &#x27;Michael&#x27;, &#x27;Dale&#x27;, &#x27;Arthur&#x27;, &#x27;Helen&#x27;, &#x27;James&#x27;, &#x27;Donna&#x27;, &#x27;Patricia&#x27;, &#x27;Betty&#x27;, &#x27;Patricia&#x27;, &#x27;Mollie&#x27;, &#x27;Nicole&#x27;, &#x27;Ernest&#x27;, &#x27;Wendy&#x27;, &#x27;Graciela&#x27;, &#x27;Teresa&#x27;, &#x27;Nicole&#x27;, &#x27;Trang&#x27;, &#x27;Caleb&#x27;, &#x27;Robert&#x27;, &#x27;Paul&#x27;, &#x27;Nieves&#x27;, &#x27;Arleen&#x27;, &#x27;Milton&#x27;, &#x27;James&#x27;, &#x27;Lawrence&#x27;, &#x27;Edward&#x27;, &#x27;Susan&#x27;, &#x27;Patricia&#x27;, &#x27;Tana&#x27;, &#x27;Jessica&#x27;, &#x27;Suzanne&#x27;, &#x27;Darren&#x27;, &#x27;Arthur&#x27;, &#x27;Holly&#x27;, &#x27;Mary&#x27;, &#x27;Randal&#x27;, &#x27;John&#x27;, &#x27;Laura&#x27;, &#x27;Betty&#x27;, &#x27;Chelsea&#x27;, &#x27;Margaret&#x27;, &#x27;Angel&#x27;, &#x27;Jeffrey&#x27;, &#x27;Mary&#x27;, &#x27;Donald&#x27;, &#x27;David&#x27;, &#x27;Roger&#x27;, &#x27;Evan&#x27;, &#x27;Danny&#x27;, &#x27;William&#x27;]
+    ages  &#x3D; [17, 58, 79, 8, 10, 57, 4, 98, 19, 47, 81, 68, 48, 13, 39, 21, 98, 51, 49, 12, 24, 78, 36, 59, 3, 87, 94, 85, 43, 69, 15, 52, 57, 36, 52, 5, 52, 5, 33, 10, 71, 28, 70, 9, 25, 28, 76, 71, 22, 35, 35, 100, 9, 95, 69, 52, 66, 91, 39, 84, 65, 29, 20, 98, 30, 83, 30, 15, 88, 89, 24, 98, 62, 94, 86, 63, 34, 23, 23, 19, 10, 80, 88, 67, 17, 91, 85, 97, 29, 7, 34, 38, 92, 29, 14, 52, 94, 62, 70, 22]
+    months &#x3D; [&#x27;January&#x27;, &#x27;March&#x27;, &#x27;January&#x27;, &#x27;October&#x27;, &#x27;April&#x27;, &#x27;February&#x27;, &#x27;August&#x27;, &#x27;January&#x27;, &#x27;June&#x27;, &#x27;August&#x27;, &#x27;February&#x27;, &#x27;May&#x27;, &#x27;March&#x27;, &#x27;June&#x27;, &#x27;February&#x27;, &#x27;August&#x27;, &#x27;June&#x27;, &#x27;March&#x27;, &#x27;August&#x27;, &#x27;April&#x27;, &#x27;April&#x27;, &#x27;June&#x27;, &#x27;April&#x27;, &#x27;June&#x27;, &#x27;February&#x27;, &#x27;September&#x27;, &#x27;March&#x27;, &#x27;July&#x27;, &#x27;September&#x27;, &#x27;December&#x27;, &#x27;June&#x27;, &#x27;June&#x27;, &#x27;August&#x27;, &#x27;November&#x27;, &#x27;April&#x27;, &#x27;November&#x27;, &#x27;August&#x27;, &#x27;June&#x27;, &#x27;January&#x27;, &#x27;August&#x27;, &#x27;May&#x27;, &#x27;March&#x27;, &#x27;March&#x27;, &#x27;March&#x27;, &#x27;May&#x27;, &#x27;September&#x27;, &#x27;August&#x27;, &#x27;April&#x27;, &#x27;February&#x27;, &#x27;April&#x27;, &#x27;May&#x27;, &#x27;March&#x27;, &#x27;March&#x27;, &#x27;January&#x27;, &#x27;August&#x27;, &#x27;October&#x27;, &#x27;February&#x27;, &#x27;November&#x27;, &#x27;August&#x27;, &#x27;June&#x27;, &#x27;September&#x27;, &#x27;September&#x27;, &#x27;January&#x27;, &#x27;September&#x27;, &#x27;July&#x27;, &#x27;July&#x27;, &#x27;December&#x27;, &#x27;June&#x27;, &#x27;April&#x27;, &#x27;February&#x27;, &#x27;August&#x27;, &#x27;September&#x27;, &#x27;August&#x27;, &#x27;February&#x27;, &#x27;April&#x27;, &#x27;July&#x27;, &#x27;May&#x27;, &#x27;November&#x27;, &#x27;December&#x27;, &#x27;February&#x27;, &#x27;August&#x27;, &#x27;August&#x27;, &#x27;September&#x27;, &#x27;December&#x27;, &#x27;February&#x27;, &#x27;March&#x27;, &#x27;June&#x27;, &#x27;December&#x27;, &#x27;February&#x27;, &#x27;May&#x27;, &#x27;April&#x27;, &#x27;July&#x27;, &#x27;March&#x27;, &#x27;June&#x27;, &#x27;December&#x27;, &#x27;March&#x27;, &#x27;July&#x27;, &#x27;May&#x27;, &#x27;September&#x27;, &#x27;November&#x27;]
+    people &#x3D; create_person_objects(names, ages, months)
+
+    # Calls to the two functions you have completed.
+    print(get_april_birthdays(people))
+    print(get_most_common_month(people))
+
+
+
+test()
+# Expected result:
+# {&#x27;Michael&#x27;: 11, &#x27;Erica&#x27;: 72, &#x27;Carol&#x27;: 36, &#x27;Lisa&#x27;: 37, &#x27;Lawrence&#x27;: 87, &#x27;Joseph&#x27;: 25, &#x27;Margaret&#x27;: 35, &#x27;Andrew&#x27;: 13, &#x27;Dusty&#x27;: 53, &#x27;Robert&#x27;: 89}
+# August
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('04. Classes')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>
